@@ -42,4 +42,8 @@ document.addEventListener("DOMContentLoaded", function() {
         hamburgerMenu.classList.toggle('open');
         nav.classList.toggle('open');
     });
+    nav.addEventListener('click', function() {
+        hamburgerMenu.classList.toggle('open');
+        nav.classList.toggle('open');
+    })
 });

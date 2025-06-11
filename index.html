@@ -5,117 +5,459 @@
     <link rel="icon" href="content/logo-transparent.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nick's Personal Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+ <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
 
-    <!-- Fonts and Icons -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-    <style>
-        .hero {
-            background-image: url("content/abstract-background.png");
-        }
-        .parallax1 {
-            background-image: url("content/mountains.png");
-        }
-        @media (max-width: 768px) {
-            #hero_background_wrap {
-                background-image: url("content/mountains.png");
-            }
-        }
-    </style>
 
+  <style>
+:root {
+  /* Base colors */
+  --primary-color: #ffffff;        /* for headings and highlights */
+  --secondary-color: #2c2c2c;      /* lighter modern charcoal */
+  --card-bg-color: #383838;        /* contrast for cards */
+  --text-color: #e5e5e5;           /* slightly warmer light gray */
+
+  /* Accent (modern sky-blue) */
+  --accent-color: #3aa1ff;         /* fresh blue */
+  --accent-hover-color: #2b8ae8;   /* deeper on hover */
+
+  /* Borders and shadows */
+  --border-color: rgba(58, 161, 255, 0.3);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+
+  /* Typography */
+  --heading-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --body-font: 'Open Sans', Arial, sans-serif;
+}
+
+
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-color);
+}
+
+header .logo h1 {
+  font-family: var(--heading-font);
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+nav a {
+  color: var(--text-color);
+  margin-left: 1.5rem;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+}
+
+/* Hero */
+#hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 8rem 2rem;
+}
+
+#hero h1 {
+  font-family: var(--heading-font);
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+#hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cta-button:hover {
+  background-color: var(--accent-hover-color);
+}
+
+/* Sections */
+section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section h2 {
+  font-family: var(--heading-font);
+  font-size: 2.25rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+section h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-color);
+  margin-top: 0.5rem;
+}
+
+/* About */
+
+#about {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+}
+/* Projects */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card img,
+.project-card video {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-card h3 {
+  font-family: var(--heading-font);
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.project-links a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--accent-color);
+  transition: all 0.2s;
+}
+
+.project-links a:hover {
+  background-color: var(--accent-hover-color);
+  color: var(--primary-color);
+}
+
+/* Skills */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+
+.skill-item {
+  background-color: var(--card-bg-color);
+  color: var(--text-color);
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  box-shadow: 0 1px 4px var(--shadow-color);
+}
+
+/* Contact */
+#contact .contact-info a {
+  color: var(--accent-color);
+}
+
+#contact .contact-info a:hover {
+  color: var(--accent-hover-color);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border-top: 1px solid var(--border-color);
+  font-size: 0.9rem;
+}
+  /* --- About Section: side-by-side photo + text --- */
+#about {
+  background-color: var(--secondary-color);
+  padding: 4rem 2rem;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;           /* stack on very narrow screens */
+  align-items: center;
+  gap: 2rem;                 /* space between photo and text */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profile-photo {
+  flex: 0 0 400px;           /* fixed width */
+  width: 100%;
+  height: auto;              /* preserve full image */
+  border-radius: 8px;
+  object-fit: cover;         /* crop only if needed to fill box */
+}
+
+.about-text {
+  flex: 1;                   /* take remaining space */
+  color: var(--text-color);
+}
+
+.about-text h2 {
+  font-family: var(--font-heading);
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  #about {
+    flex-direction: column;
+  }
+
+  #hero h1 {
+    font-size: 2.5rem;
+  }
+
+  nav a {
+    margin-left: 1rem;
+    font-size: 0.95rem;
+  }
+  .about-container {
+    flex-direction:column;
+  }
+}
+
+
+
+
+
+
+  </style>
+   
 </head>
-
 <body>
-    <div id="hero_background_wrap"></div>
-    <div id="content_background_wrap"></div>
-    <header>
+        <header>
         <div class="logo">
-            <img src="content/logo-transparent.png" alt="Logo">
+            <h1>Nicholas Brough</h1>
         </div>
         <nav>
-            <a href="/">Home</a>
-            <a href="about_me.html">About Me</a>
-            <a href="contact.html">Contact</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="https://www.instagram.com/" target="_blank" class="instagram-icon">
-                <i class="fab fa-instagram"></i>
-            </a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </nav>
         <div class="hamburger-menu" id="hamburger-menu">
             <i class="fas fa-bars"></i>
         </div>
         <nav class="nav-mobile" id="nav-mobile">
-            <a href="/">Home</a>
-            <a href="about_me.html">About Me</a>
-            <a href="contact.html">Contact</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="https://www.instagram.com/" target="_blank" class="instagram-icon">
-                <i class="fab fa-instagram"></i>
-            </a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </nav>
-    </header>
+        </header>
 
-    <section class="hero">
-        <div class="hero-text">
-            <h2>Welcome</h2>
-            <p>to Nick's personal portfolio</p>
-        </div>
-    </section>
+  <main>
     
-    <section class="home-content">
-        <div class="parallax parallax1"></div>
-            <div class="contentbox-container">
-                <div class="content">
-                    <section id="about">
-                        <h3>Creative</h3>
-                    </section>
-                    <section>
-                        <p>Whether it's 3d models, games, apps, websites, or any kind of art, I have always loved design.</p>
-                    </section>
-                </div>
+    <section id="hero">
+      <h1>Nicholas Brough</h1>
+      <p>
+        Software · Electronics · Design
+      </p>
+      <a href="content/Nicholas_Brough_Resume.pdf">
+      <button class="cta-button">Download Resume</button>        
+      </a>
 
-                <div class="content">
-                    <section>
-                        <h3>Ambitious</h3>
-                    </section>
-                    <section>
-                        <p>I am a highly ambitious creator, with a comitment of surpassing expectations.</p>
-                    </section>
-                </div>
-
-                <div class="content">
-                    <section>
-                        <h3>Versatile</h3>
-                    </section>
-                    <section>
-                        <p>I have a diverse set of skills, which allow me to persue all kinds of projects.</p>
-                    </section>
-                </div>
-            </div>
+      
     </section>
 
-    <footer class="footer">
-        <div class="logo">
-            <img src="content/logo-transparent.png" alt="Logo">
-        </div>
-        <nav>
-            <a href="/">Home</a>
-            <a href="about_me.html">About Me</a>
-            <a href="contact.html">Contact</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="https://www.instagram.com/" target="_blank" class="instagram-icon">
-                <i class="fab fa-instagram"></i>
-            </a>
-        </nav>
-        <div class="footer-contact">
-            <h4>Nicholas Brough - 2024</h4>
-        </div>
-    </footer>
+<section id="about">
+  <div class="about-container">
+    <img 
+      src="content/me.jpg"
+      alt="Photo of Nicholas Brough"
+      class="profile-photo"
+    />
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I grew up on Vancouver Island and have a passion for programming and electronics. I enjoy diagnosing and solving complex problems. Most of my spare time goes into software and engineering side projects.
+      </p>
+      <p>
+        After studying Electrical Engineering at UBC Okanagan, I shifted my focus to Computing Science at Douglas College, where I am now completing my associate's degree. I'm eager to apply my blend of hardware and software expertise in a professional role.
+      </p>
+    </div>
+  </div>
+</section>
 
-</body>
+    
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        
+        <div class="project-card">
+
+          <img src="content/penplotter.jpg" alt="Project 1 Screenshot" />
+          <div class="project-content">
+            <h3>Pen Plotter</h3>
+            <p>
+              A pen plotter with scratch-built software and mechanical design. This project was part of a Raspberry Pi class at Douglas College. This project was later featured in an <a href="https://blog.douglascollege.ca/2024/07/08/a-fine-line-douglas-student-develops-a-drawing-robot-using-raspberry-pi/" target="_blank" rel="noopener">article</a> by the college.
+            </p>
+            <div class="project-links">
+              
+              <a href="#" target="_blank" rel="noopener">More</a>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="project-card">
+          
+          <img src="content/3dprinter.jpg" alt="Project 2 Screenshot" />
+          <div class="project-content">
+            <h3>3D Printer</h3>
+            <p>
+              A 3D printer which I build and designed as a derivative of The 100 originally designed by <a href="https://www.printables.com/@MattThePrintingNerd" target="_blank" rel="noopener">@MattThePrintingNerd</a>
+            </p>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener">More</a>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="project-card">
+          
+          <img src="content/dirtbikegame.jpg" alt="Project 3 Screenshot" />
+          <div class="project-content">
+            <h3>Offroad Motorcycle Simulation</h3>
+            <p>
+              A dirt bike / motocross simulation game I am developing with C++ and Unreal Engine, with the goal of creating the most accurate dirt bike physics in a video game.
+            </p>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener">More</a>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+    </section>
+
+    
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <div class="skills-list">
+        <div class="skill-item">C / C++</div>
+        <div class="skill-item">Python</div>
+        <div class="skill-item">TensorFlow / PyTorch</div>
+        <div class="skill-item">Unreal Engine / C++</div>
+        <div class="skill-item">Linux</div>
+        <div class="skill-item">Git</div>
+        <div class="skill-item">Azure / Google Cloud</div>
+        <div class="skill-item">Electronics</div>
+        <div class="skill-item">Soldering</div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Get In Touch</h2>
+
+      <div class="contact-info">
+        <p><strong>Email:</strong> <a href="mailto:nickcbrough@gmail.com">nickcbrough@gmail.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Nicholas Brough. All rights reserved.</p>
+  </footer>
+</body> 
 </html>

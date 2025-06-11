@@ -1,4 +1,4 @@
-/* --- Global Styles --- */
+--- Global Styles ---
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -15,8 +15,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(90deg, rgb(104, 136, 148) 10%, rgb(117, 112, 122) 100%);
-    background-color: #505a50;
     color: #FFF;
     padding: 20px 10px;
     position: fixed;
@@ -317,8 +315,7 @@ header nav a:hover::after {
         font-size: 22px;
         margin: 10px;
     }
-    header .logo img {
-        height: 80px;
+    header .logo {
         width: auto;
         padding-left: 30px;
     }
@@ -562,7 +559,7 @@ header nav a:hover::after {
     z-index: 999;
     margin: 0;
     padding: 0;    
-    margin-top: 71px;
+    margin-top: 50px;
     padding-bottom: 2px;
     max-height: 0;
     overflow: hidden;

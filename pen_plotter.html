@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="content/logo-transparent.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nick's Personal Portfolio - Gallery</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <script src="js/script.js"></script>
+    <script src="js/gallery.js"></script>
+
+    <!-- Fonts and Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        background-image: url("content/penplotter.jpg");
+        background-size:cover;
+        background-position: center;
+        height:100%;
+    }
+    .project-body-main {
+        background-color:var(--background-color);
+        display:flex;
+        width:100%;
+        padding:5% 20% 10% 20%;   
+    }
+    .project-content {
+        background-color:var(--background-color);
+        display:flex;
+        width:50%;
+        padding:0px 50px;
+    }
+    .project-content p {
+        margin:10px;
+    }
+    .project-content img {
+        max-width:50%;
+        margin:10px;
+    }
+    .whitespace {
+        margin:50px;
+    }
+
+    .project-content h2 {
+        margin:10px;
+        align-self:left;
+    }
+    .project-content h3 {
+        margin-left:10px;
+        align-self:left;
+    }
+
+    .project-content ul {
+        margin-bottom:20px;
+        margin-left:50px;
+    }
+
+    .img-container {
+        margin-top:50px;
+        padding:10px;
+        display: flex;
+        min-width:100%;
+        align-items:center;
+        justify-content: space-between;
+    }
+    .img-container img {
+        margin-bottom:50px;
+        width:47%;
+        box-shadow: 0 6px 12px #00000088;
+    }
+
+    @media (max-width: 768px) {
+        .project-body-main {
+            padding:10% 3% 10% 3%;   
+        }
+        .project-content p {
+            max-width: 100%;
+        }
+        .img-container {
+            flex-direction:column;
+        }
+        .img-container img {
+            min-width:100%;
+        }
+    }
+
+</style>
+
+</head>
+<body>
+  <header>
+  <div class="logo">
+      <h1><a href="/">Nicholas Brough</a></h1></h1>
+  </div>
+  <nav>
+      <a href="/">Home</a>
+  </nav>
+  </header>
+
+    <h1 class="page-title">Pen Plotter Project</h1>
+
+    <div class="project-body-main">
+        <div class="project-content">
+        <h2>Overview</h2>
+        <p>
+            This was my final project for the <em>Designing with Raspberry Pi</em> course at Douglas College. I designed and built a CNC pen plotter using 3D-printed parts modeled in Autodesk Fusion and developed the control software from scratch. The project was featured in a <a href="https://blog.douglascollege.ca/2024/07/08/a-fine-line-douglas-student-develops-a-drawing-robot-using-raspberry-pi/" target="_blank" rel="noopener">Douglas College article</a>.
+        </p>
+
+        <h2>Mechanical Design</h2>
+        <h3>Materials</h3>
+        <ul>
+            <li>Raspberry Pi</li>
+            <li>Stepper motors</li>
+            <li>ULN2003 stepper motor drivers</li>
+            <li>Bearings</li>
+            <li>3D-printed structural components (including flexible TPU belts)</li>
+        </ul>
+        <p>
+            To keep costs low, nearly all mechanical components were 3D printed, including the structural frame and motion system. Only essential off-the-shelf parts—such as motors, bearings, and the pen were sourced externally. Even the timing belts were printed in flexible TPU filament.
+        </p>
+
+        <h2>Software</h2>
+        <p>
+            The plotter runs on custom software developed specifically for this project. It includes a GUI with multiple drawing modes, including direct image upload. Uploaded images are processed using automated edge detection (Canny), followed by toolpath generation via depth-first traversal of the extracted line data.
+        </p>
+        <p>
+            In addition to image tracing, the software supports procedural modes such as random maze generation, spirograph-style patterns, and text rendering. Stepper motor control is handled with substepping and acceleration to ensure smooth and responsive motion.
+        </p>
+
+        <div class="img-container">
+            <img src="content/monalisaplot.gif">
+            <img src="content/writingplot.gif">                
+        </div>
+        
+        </div>
+    </div>
+
+  <footer>
+    <p>&copy; 2025 Nicholas Brough. All rights reserved.</p>
+  </footer>
+</body> 
+</html>

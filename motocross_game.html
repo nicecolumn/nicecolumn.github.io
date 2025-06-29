@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="content/logo-transparent.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nick's Personal Portfolio - Gallery</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <script src="js/script.js"></script>
+    <script src="js/gallery.js"></script>
+
+    <!-- Fonts and Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        background-image: url("content/dirtbikegame_b.png");
+        background-size:cover;
+        background-position: center;
+        height:100%;
+    }
+    .project-body-main {
+        background-color:var(--background-color);
+        display:flex;
+        width:100%;
+        padding:5% 20% 10% 20%;   
+    }
+    .project-content {
+        background-color:var(--background-color);
+        display:flex;
+        width:50%;
+        padding:0px 50px;
+    }
+    .project-content p {
+        margin:10px;
+    }
+    .project-content img {
+        max-width:50%;
+        margin:10px;
+    }
+    .whitespace {
+        margin:50px;
+    }
+
+    .project-content h2 {
+        margin:10px;
+        align-self:left;
+    }
+    .project-content h3 {
+        margin-left:10px;
+        align-self:left;
+    }
+
+    .project-content ul {
+        margin-bottom:20px;
+        margin-left:50px;
+    }
+
+    .img-container {
+        margin-top:50px;
+        padding:10px;
+        display: flex;
+        min-width:100%;
+        align-items:center;
+        justify-content: space-between;
+    }
+    .img-container img {
+        margin-bottom:50px;
+        width:47%;
+        box-shadow: 0 6px 12px #00000088;
+    }
+
+    @media (max-width: 768px) {
+        .project-body-main {
+            padding:10% 3% 10% 3%;   
+        }
+        .project-content p {
+            max-width: 100%;
+        }
+        .img-container {
+            flex-direction:column;
+        }
+        .img-container img {
+            min-width:100%;
+        }
+    }
+
+</style>
+
+</head>
+<body>
+  <header>
+  <div class="logo">
+      <h1><a href="/">Nicholas Brough</a></h1></h1>
+  </div>
+  <nav>
+      <a href="/">Home</a>
+  </nav>
+  </header>
+
+    <h1 class="page-title">Motocross Simulation Game Project</h1>
+
+    <div class="project-body-main">
+
+        <div class="project-content">
+            <h2>Overview</h2>
+            <p>
+            I am developing a motocross simulator that prioritizes physical accuracy. Every subsystem from rigid-body dynamics to real-time rendering is built from scratch in modern C++ with OpenGL. This project serves as both a learning platform to deepen my understanding of physics simulation and a way to sharpen my programming skills. The long-term goal is to create a game that captures the authentic handling characteristics of a real off-road motorcycle.
+            </p>
+            
+            <h2>Core Physics</h2>
+            <p>
+            The motorcycle is represented by five rigid bodies: frame, fork, swingarm, and two wheels. Six degree-of-freedom constraints link these parts. Each simulation step assembles them into a Jacobian system solved with a projected Gauss-Seidel solver, and states advance through an implicit fourth-order Runge-Kutta integrator.
+            </p>
+
+            <p>
+            The rider is modeled as an additional rigid body. Four soft positional constraints (hands and feet) attach the rider to the bike, so steering and leaning arise naturally from player input. Careful tuning of constraint softness delivers responsive controls without adding artificial forces.
+            </p>
+
+            <p>
+            Wheel-ground interaction uses a modified Pacejka model that calculates lateral force, longitudinal force, and self-aligning torque from instantaneous slip. This keeps the simulation lightweight while still producing believable grip transitions, roost, and high-speed wobble.
+            </p>
+
+            <h2>Ongoing Research</h2>
+            <p>
+            Realistic motocross requires deformable soil. I am evaluating two complementary approaches: a shallow viscous-layer model that carves broad ruts, and a GPU-accelerated discrete-element patch beneath each tire to account for real-time soil movement.
+            </p>
+
+            <div class="img-container">
+                <img src="content/dirtbikegif_1.gif">
+                <img src="content/dirtbikegif_3.gif">                
+            </div>
+
+        </div>
+    </div>
+
+  <footer>
+    <p>&copy; 2025 Nicholas Brough. All rights reserved.</p>
+  </footer>
+</body> 
+</html>
